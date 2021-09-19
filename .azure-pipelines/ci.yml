@@ -7,8 +7,6 @@ jobs:
 
 - job: Windows_CI_Tests
   displayName: Windows CI Tests
-  dependsOn: Prebuild
-  condition: and(succeeded(), eq(dependencies.Prebuild.outputs['tests.run'], 'true'))
 
   pool:
     vmImage: windows-2019
