@@ -13,8 +13,8 @@ jobs:
   strategy:
     matrix:
       win64:
-        arch: arm64
-        buildOpt: '-p arm64'
+        arch: ARM64
+        buildOpt: '-p ARM64'
         testRunTitle: '$(Build.SourceBranchName)-win64'
         testRunPlatform: win64
     maxParallel: 4
