@@ -62,7 +62,12 @@ set libraries=%libraries%                                       xz-5.2.2
 set libraries=%libraries%                                       zlib-1.2.11
 
 for %%e in (%libraries%) do (
-    if exist "%EXTERNALS_DIR%\%%e" (
+    rem hack: use tcl and tk source code from nsait-linaro for testing
+    if "%%e%"=="tcl-core-8.6.12.0" (
+        git clone --depth 1 https://github.com/nsait-linaro/cpython-source-deps --branch windows-arm64 "%EXTERNALS_DIR%\%%e"
+    ) else if "%%e%"=="tk-8.6.12.0" (
+        git clone --depth 1 https://github.com/nsait-linaro/cpython-source-deps --branch tk-windows-arm64 "%EXTERNALS_DIR%\%%e"
+    ) else if exist "%EXTERNALS_DIR%\%%e" (
         echo.%%e already exists, skipping.
     ) else if NOT DEFINED PYTHON (
         echo.Fetching %%e with git...
