@@ -1,0 +1,12 @@
+environment:
+  matrix:
+  - Architecture: x64
+    Compiler: vs2019
+    APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2019
+
+build: off
+build_script:
+- ps: .\PCbuild\build.bat -e -p x64
+- ps: .\PCbuild\rt.bat -p x64 -q -uall -u-cpu -rwW test_idle -v
+
+test: off
