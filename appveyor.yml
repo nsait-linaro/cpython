@@ -7,6 +7,6 @@ environment:
 build: off
 build_script:
 - ps: .\PCbuild\build.bat -e -p x64
-- ps: .\PCbuild\rt.bat -p x64 -q -uall -u-cpu -rwW
+- ps: .\PCbuild\rt.bat -p x64 -q -uall -u-cpu -rwW 
 
 test: off
